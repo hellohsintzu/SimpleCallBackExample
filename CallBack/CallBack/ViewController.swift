@@ -76,7 +76,6 @@ class ViewController: UIViewController {
     @IBAction func plusResetButtonDidTap(_ sender: Any) {
         plusViewModel.resetState()
     }
-    
 }
 
 extension ViewController: PlusViewModelDelegate {

@@ -38,8 +38,8 @@ class PlusViewModel: BaseViewModel {
     }
     
     func plusEqualsTo(first: String, second: String) {
-        let numberOne = transferStringToInt(from: first)
-        let numberTwo = transferStringToInt(from: second)
+        let numberOne = Int(first) ?? 0
+        let numberTwo = Int(second) ?? 0
         let result = numberOne + numberTwo
         delegate?.updateResultLabel(with: "\(result)")
     }
@@ -48,12 +48,5 @@ class PlusViewModel: BaseViewModel {
         delegate?.updateUI(with: numberOneText,
                            secondNumberText: numberTwoText,
                            resultText: resultDefaultText)
-    }
-    
-    private func transferStringToInt(from text: String) -> Int {
-        guard let result = Int(text) else {
-            return 0
-        }
-        return result
     }
 }

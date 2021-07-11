@@ -24,20 +24,13 @@ class MultiplyViewModel: BaseViewModel {
     }
     
     func multipliesEqualsTo(firstText: String, secondText: String, handler: (_ result: String) -> Void) {
-        let firstNumber = transferStringToInt(from: firstText)
-        let secondNumber = transferStringToInt(from: secondText)
+        let firstNumber = Int(firstText) ?? 0
+        let secondNumber = Int(secondText) ?? 0
         let result = firstNumber * secondNumber
         handler("\(result)")
     }
     
     func resetState(handler: ((firstNum: String, secondNum: String, resultText: String)) -> Void) {
         handler((numberOneText, numberTwoText, resultDefaultText))
-    }
-    
-    private func transferStringToInt(from text: String) -> Int {
-        guard let result = Int(text) else {
-            return 0
-        }
-        return result
     }
 }
